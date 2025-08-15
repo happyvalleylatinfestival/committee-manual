@@ -9,11 +9,11 @@ permalink: /organizational-chart/
 This chart shows the complete committee structure with roles, time commitments, and key responsibilities.
 
 <div style="text-align: center; margin: 2em 0;">
-  <iframe src="organizational-chart.html" width="100%" height="900" frameborder="0" style="border: 1px solid #ddd; border-radius: 8px;"></iframe>
+  <iframe src="../organizational-chart.html" width="100%" height="900" frameborder="0"></iframe>
 </div>
 
 <p style="text-align: center;">
-  <a href="organizational-chart.html" target="_blank" style="background: #007cba; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">View Full Screen Chart</a>
+  <a href="../organizational-chart.html" target="_blank">View Full Screen Chart</a>
 </p>
 
 ---
