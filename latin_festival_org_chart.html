@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valley Latin Festival - Organizational Chart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .org-chart {
+            padding: 40px;
+        }
+
+        .level {
+            margin-bottom: 50px;
+        }
+
+        .level-title {
+            text-align: center;
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 30px;
+            padding: 10px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .positions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .position {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid;
+            transition: all 0.3s ease;
+            min-width: 280px;
+            max-width: 320px;
+        }
+
+        .position:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .position.main {
+            border-left-color: #e74c3c;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .position.core {
+            border-left-color: #3498db;
+        }
+
+        .position.support {
+            border-left-color: #2ecc71;
+        }
+
+        .position.specialist {
+            border-left-color: #9b59b6;
+        }
+
+        .position h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .position .time-commitment {
+            background: rgba(52, 152, 219, 0.1);
+            color: #2980b9;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .position .responsibilities {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .position .responsibilities li {
+            padding: 5px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .position .responsibilities li:before {
+            content: "•";
+            color: #e74c3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .position .skills {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #2ecc71;
+        }
+
+        .position .skills h4 {
+            color: #27ae60;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+
+        .position .skills p {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .connections {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .connection-line {
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, #ddd, #999);
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+
+        .legend-color.main { background-color: #e74c3c; }
+        .legend-color.core { background-color: #3498db; }
+        .legend-color.support { background-color: #2ecc71; }
+        .legend-color.specialist { background-color: #9b59b6; }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .position {
+                min-width: 260px;
+                max-width: 100%;
+            }
+            
+            .legend {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Happy Valley Latin Festival</h1>
+            <p>Organizational Structure & Committee Roles</p>
+        </div>
+        
+        <div class="org-chart">
+            <!-- Main Coordinator Level -->
+            <div class="level">
+                <div class="level-title">Executive Leadership</div>
+                <div class="positions">
+                    <div class="position main">
+                        <h3>Main Festival Coordinator</h3>
+                        <div class="time-commitment">15-20 hrs/week</div>
+                        <ul class="responsibilities">
+                            <li>Central oversight & final authority</li>
+                            <li>Legal compliance & permits</li>
+                            <li>Banking & financial transactions</li>
+                            <li>High-level partnerships</li>
+                            <li>Team leadership & coordination</li>
+                        </ul>
+                        <div class="skills">
+                            <h4>Key Requirements:</h4>
+                            <p>Bank account access, leadership experience, government relations, financial management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connections">
+                <div class="connection-line"></div>
+            </div>
+
+            <!-- Core Operations Level -->
+            <div class="level">
+                <div class="level-title">Core Operations Team</div>
+                <div class="positions">
+                    <div class="position core">
+                        <h3>Vendor Coordinator</h3>
+                        <div class="time-commitment">8-12 hrs/week</div>
+                        <ul class="responsibilities">
+                            <li>Application processing</li>
+                            <li>Payment coordination</li>
+                            <li>Food vendor compliance</li>
+                            <li>Vendor relations</li>
+                        </ul>
+                        <div class="skills">
+                            <h4>Key Skills:</h4>
+                            <p>Organization, communication, compliance tracking</p>
+                        </div>
+                    </div>
+
+                    <div class="position core">
+                        <h3>Artist Coordinator</h3>
+                        <div class="time-commitment">6-10 hrs/week</div>
+                        <ul class="responsibilities">
+                            <li>Artist recruitment & booking</li>
+                            <li>Performance scheduling</li>
+                            <li>Technical coordination</li>
+                            <li>Artist relations</li>
+                        </ul>
+                        <div class="skills">
+                            <h4>Key Skills:</h4>
+                            <p>Music scene knowledge, networking, technical coordination</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connections">
+                <div class="connection-line"></div>
+            </div>
+
+            <!-- Essential Support Level -->
+            <div class="level">
+                <div class="level-title">Essential Support Team</div>
+                <div class="positions">
+                    <div class="position support">
+                        <h3>Website Manager</h3>
+                        <div class="time-commitment">4-6 hrs/week</div>
+                        <ul class="responsibilities">
+                            <li>Form management</li>
+                            <li>Site maintenance</li>
+                            <li>Technical support</li>
+                            <li>System integration</li>
+                        </ul>
+                        <div class="skills">
+                            <h4>Key Skills:</h4>
+                            <p>Google Forms, website management, troubleshooting</p>
+                        </div>
+                    </div>
+
+                    <div class="position support">
+                        <h3>Marketing/Social Media Coordinator</h3>
+                        <div class="time-commitment">6-8 hrs/week</div>
+                        <ul class="responsibilities">
+                            <li>Content creation</li>
+                            <li>Promotional campaigns</li>
+                            <li>Community outreach</li>
+                            <li>Brand coordination</li>
+                        </ul>
+                        <div class="skills">
+                            <h4>Key Skills:</h4>
+                            <p>Social media, graphic design, marketing experience</p>
+                        </div>
+                    </div>
+
+                    <div class="position support">
+                        <h3>Volunteer Coordinator</h3>
+                        <div class="time-commitment">5-8 hrs/week</div>
+                        <ul class="responsibilities">
+                            <li>Volunteer recruitment</li>
+                            <li>Training programs</li>
+                            <li>Scheduling coordination</li>
+                            <li>Day-of management</li>
+                        </ul>
+                        <div class="skills">
+                            <h4>Key Skills:</h4>
+                            <p>People management, event coordination, training</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connections">
+                <div class="connection-line"></div>
+            </div>
+
+            <!-- Specialist Positions -->
+            <div class="level">
+                <div class="level-title">Specialist Positions</div>
+                <div class="positions">
+                    <div class="position specialist">
+                        <h3>Finance Coordinator</h3>
+                        <div class="time-commitment">4-6 hrs/week</div>
+                        <ul class="responsibilities">
+                            <li>Budget monitoring</li>
+                            <li>Expense tracking</li>
+                            <li>Financial reporting</li>
+                            <li>Budget analysis</li>
+                        </ul>
+                        <div class="skills">
+                            <h4>Key Skills:</h4>
+                            <p>Bookkeeping, budget management, financial analysis</p>
+                        </div>
+                    </div>
+
+                    <div class="position specialist">
+                        <h3>Information Tables Coordinator</h3>
+                        <div class="time-commitment">3-5 hrs/week</div>
+                        <ul class="responsibilities">
+                            <li>Community organization outreach</li>
+                            <li>Application processing</li>
+                            <li>Setup coordination</li>
+                            <li>Day-of support</li>
+                        </ul>
+                        <div class="skills">
+                            <h4>Key Skills:</h4>
+                            <p>Community relations, coordination, cultural awareness</p>
+                        </div>
+                    </div>
+
+                    <div class="position specialist">
+                        <h3>Sponsor Relations Coordinator</h3>
+                        <div class="time-commitment">4-7 hrs/week</div>
+                        <ul class="responsibilities">
+                            <li>Sponsor recruitment</li>
+                            <li>Package development</li>
+                            <li>Relationship management</li>
+                            <li>Benefit delivery</li>
+                        </ul>
+                        <div class="skills">
+                            <h4>Key Skills:</h4>
+                            <p>Sales, relationship building, partnership development</p>
+                        </div>
+                    </div>
+
+                    <div class="position specialist">
+                        <h3>Grants Coordinator</h3>
+                        <div class="time-commitment">3-6 hrs/week</div>
+                        <ul class="responsibilities">
+                            <li>Grant research</li>
+                            <li>Application writing</li>
+                            <li>Compliance tracking</li>
+                            <li>Reporting requirements</li>
+                        </ul>
+                        <div class="skills">
+                            <h4>Key Skills:</h4>
+                            <p>Grant writing, research, compliance management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color main"></div>
+                    <span>Executive Leadership</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color core"></div>
+                    <span>Core Operations</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color support"></div>
+                    <span>Essential Support</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color specialist"></div>
+                    <span>Specialist Positions</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
