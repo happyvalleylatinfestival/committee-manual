@@ -3,7 +3,9 @@ layout: home
 title: Committee Planning Manual
 ---
 
-# Happy Valley Latin Festival - Committee Planning Manual
+# Committee Planning Manual
+
+THIS IS ONLY A DRAFT FOR NOW 
 
 **For Committee Members Only** - This site contains planning resources, role descriptions, and workflows for festival organizing committee members.
 
