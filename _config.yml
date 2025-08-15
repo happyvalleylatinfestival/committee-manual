@@ -1,0 +1,28 @@
+title: Happy Valley Latin Festival - Committee Planning Resources
+description: Planning manual and resources for festival organizing committee members
+url: "https://happyvalleylatinfestival.github.io"
+baseurl: "/committee-manual"
+
+# Build settings
+markdown: kramdown
+theme: minima
+
+# Navigation
+header_pages:
+  - index.md
+  - organizational-chart.md
+  - resources.md
+
+# Collections for manual sections
+collections:
+  manual:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "manual"
+    values:
+      layout: "manual"
