@@ -1,0 +1,16 @@
+# GitHub Pages configuration for HVLF Committee Manual
+# Static HTML site — Jekyll passthrough only (no theme, no processing)
+
+title: "HVLF Committee Manual"
+description: "Planning manual for the Happy Valley Latin Festival committee"
+
+# Tell Jekyll not to process our HTML files with Liquid templating
+# (prevents conflicts with {{ }} or {% %} in content)
+render_with_liquid: false
+
+# Exclude files that don't need to be published
+exclude:
+  - "*.zip"
+  - README.md
+
+# No remote theme — we're using our own styles.css

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Org Chart — HVLF Committee Manual</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .chart-wrap {
+      overflow-x: auto;
+      padding: 16px 0;
+    }
+    .chart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      min-width: 680px;
+    }
+    .chart-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+      width: 100%;
+    }
+    .chart-row + .chart-row {
+      margin-top: 16px;
+    }
+    .chart-connector {
+      width: 2px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--terracotta), var(--teal));
+      margin: 0 auto;
+    }
+    .chart-row-connector {
+      position: relative;
+      width: 100%;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chart-row-connector::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: var(--teal);
+      transform: translateX(-50%);
+    }
+    .chart-row-connector::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 20%;
+      right: 20%;
+      height: 2px;
+      background: var(--teal);
+    }
+
+    .chart-box {
+      background: var(--warm-white);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--terracotta);
+      text-align: center;
+      min-width: 160px;
+      max-width: 180px;
+      flex: 1;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .chart-box:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .chart-box.main   { border-top-color: var(--terracotta); background: linear-gradient(135deg, #FEF0ED, #FAF6F0); }
+    .chart-box.core   { border-top-color: var(--teal); }
+    .chart-box.support{ border-top-color: var(--gold); }
+    .chart-box.spec   { border-top-color: #7C5CBF; }
+
+    .chart-box .box-icon { font-size: 1.5rem; margin-bottom: 8px; display: block; }
+    .chart-box h4 { font-size: 0.85rem; margin-bottom: 4px; }
+    .chart-box .box-hours {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .level-label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 48px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <div class="logo">🎶 <span>HVLF</span> Committee Manual</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="roles.html">Roles</a></li>
+        <li><a href="how-we-plan.html">How We Plan</a></li>
+        <li><a href="sections.html">Full Manual</a></li>
+        <li><a href="org-chart.html" class="active">Org Chart</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="pill">Committee Structure</div>
+  <h1>Organizational Chart</h1>
+  <p>How the committee fits together. Every role reports to or coordinates closely with the Main Festival Coordinator, who is the central hub of all festival planning.</p>
+</section>
+
+<section class="content-section">
+  <div class="page-wrap">
+    <div class="chart-wrap">
+      <div class="chart">
+
+        <!-- Executive -->
+        <div class="level-label">Executive Leadership</div>
+        <div class="chart-row">
+          <div class="chart-box main">
+            <span class="box-icon">🏅</span>
+            <h4>Main Festival Coordinator</h4>
+            <span class="box-hours">15–20 hrs/week</span>
+          </div>
+        </div>
+
+        <!-- Connector -->
+        <div style="width:2px; height:36px; background:linear-gradient(to bottom, var(--terracotta), var(--teal)); margin:0 auto;"></div>
+        <div style="width:70%; height:2px; background:var(--teal); margin:0 auto;"></div>
+        <div style="display:flex; justify-content:space-between; width:70%; margin:0 auto;">
+          <div style="width:2px; height:24px; background:var(--teal);"></div>
+          <div style="width:2px; height:24px; background:var(--teal);"></div>
+          <div style="width:2px; height:24px; background:var(--teal);"></div>
+          <div style="width:2px; height:24px; background:var(--teal);"></div>
+          <div style="width:2px; height:24px; background:var(--teal);"></div>
+        </div>
+
+        <!-- Core Operations -->
+        <div class="level-label" style="margin-top:0;">Core Operations</div>
+        <div class="chart-row">
+          <div class="chart-box core">
+            <span class="box-icon">🛍</span>
+            <h4>Vendor Coordinator</h4>
+            <span class="box-hours">8–12 hrs/week</span>
+          </div>
+          <div class="chart-box core">
+            <span class="box-icon">🎤</span>
+            <h4>Artist Coordinator</h4>
+            <span class="box-hours">8–12 hrs/week</span>
+          </div>
+        </div>
+
+        <div style="height:24px;"></div>
+
+        <!-- Essential Support -->
+        <div class="level-label">Essential Support</div>
+        <div class="chart-row">
+          <div class="chart-box support">
+            <span class="box-icon">🌐</span>
+            <h4>Website Manager</h4>
+            <span class="box-hours">3–5 hrs/week</span>
+          </div>
+          <div class="chart-box support">
+            <span class="box-icon">📣</span>
+            <h4>Marketing &amp; Social Media</h4>
+            <span class="box-hours">6–10 hrs/week</span>
+          </div>
+          <div class="chart-box support">
+            <span class="box-icon">🙋</span>
+            <h4>Volunteer Coordinator</h4>
+            <span class="box-hours">5–8 hrs/week</span>
+          </div>
+        </div>
+
+        <div style="height:24px;"></div>
+
+        <!-- Specialist -->
+        <div class="level-label">Specialist Positions</div>
+        <div class="chart-row">
+          <div class="chart-box spec">
+            <span class="box-icon">💰</span>
+            <h4>Finance Coordinator</h4>
+            <span class="box-hours">4–6 hrs/week</span>
+          </div>
+          <div class="chart-box spec">
+            <span class="box-icon">🏢</span>
+            <h4>Info Tables</h4>
+            <span class="box-hours">3–5 hrs/week</span>
+          </div>
+          <div class="chart-box spec">
+            <span class="box-icon">🤝</span>
+            <h4>Sponsor Relations</h4>
+            <span class="box-hours">4–7 hrs/week</span>
+          </div>
+          <div class="chart-box spec">
+            <span class="box-icon">📝</span>
+            <h4>Grants Coordinator</h4>
+            <span class="box-hours">3–6 hrs/week</span>
+          </div>
+          <div class="chart-box spec">
+            <span class="box-icon">🌟</span>
+            <h4>Year Honoree</h4>
+            <span class="box-hours">2–4 hrs/week</span>
+          </div>
+          <div class="chart-box spec">
+            <span class="box-icon">🎀</span>
+            <h4>Street Decorating</h4>
+            <span class="box-hours">2–4 hrs/week</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--terracotta);"></div> Executive Leadership</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--teal);"></div> Core Operations</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--gold);"></div> Essential Support</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7C5CBF;"></div> Specialist Positions</div>
+    </div>
+
+    <div class="callout info" style="margin-top:48px;">
+      <h4>How this works in practice</h4>
+      <p>Every coordinator works closely with the Main Festival Coordinator, but most roles also depend heavily on each other. The Marketing Coordinator needs content from the Vendor and Artist Coordinators. The Vendor Coordinator works with the Info Tables Coordinator on space layout. The Finance Coordinator tracks payments that the Main Coordinator processes. Knowing the whole picture makes everyone better at their own piece.</p>
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="roles.html" style="display:inline-block; background:var(--terracotta); color:#fff; padding:14px 32px; border-radius:8px; font-weight:600; text-decoration:none; font-size:0.95rem;">Read the full role descriptions →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>Written by <strong>Jennifer Isasi, PhD</strong> · Maintained by the Happy Valley Latin Festival Committee</p>
+  <p style="margin-top:8px;">Latin Vibe · State College, PA · 501(c)(3) nonprofit</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="roles.html">Roles</a>
+    <a href="how-we-plan.html">How We Plan</a>
+    <a href="sections.html">Full Manual</a>
+    <a href="org-chart.html">Org Chart</a>
+  </div>
+</footer>
+
+</body>
+</html>
