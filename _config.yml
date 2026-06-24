@@ -2,7 +2,7 @@
 # Static HTML site — Jekyll passthrough only (no theme, no processing)
 
 title: "HVLF Committee Manual"
-description: "Planning manual for the Happy Valley Latin Festival committee"
+description: "Planning manual for the Happy Valley Latin Festival committee."
 
 # Tell Jekyll not to process our HTML files with Liquid templating
 # (prevents conflicts with {{ }} or {% %} in content)
